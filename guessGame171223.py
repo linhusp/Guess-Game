@@ -34,11 +34,13 @@ while True:
         guessNum= ""
         while not checkInput(guessNum):
             guessNum= input("> Guess %s: " %guessTime)
+            if not checkInput(guessNum):
+                print("Now you fucked up!")
         
         result= checkGuess(int(guessNum), secretNum)
         print(result)
         
-        if guessNum==secretNum:
+        if int(guessNum)==secretNum:
             print("You got my number [%s] in %s!" % (secretNum, guessTime))
             break
         if guessTime==MAX:
